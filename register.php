@@ -81,7 +81,7 @@
 
       <div class="container-md text-center mt-5" style="max-width: 400px;">
         <div class="mb-4 hero-text">Let's Get Registered!</div>
-        <form action="dbregister.php" method="POST" class="container">
+        <form action="dbregister.php" method="POST">
             <div class="mb-3 ">
                 <input type="email" class="form-control text-center fs-5 fw-light" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Email address">
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
@@ -114,20 +114,29 @@
             <button type="submit" class="btn btn-primary fs-5 fw-light">Register</button><br>
             <button type="reset" class="btn2 btn-primary">Clear</button>
         </form>
-        <div class="text-center mt-2">
+        <div class="text-center">
           Already have an account? <a href="login.html">Login</a>
-        </div>
-          <?php
+        </div class="container mb-5">
+        <?php
 
-            if(isset($_GET['error'])) {
-            echo('
-              <div class="alert alert-danger mt-3" role="alert">
+        if(isset($_GET['error'])) {
+          echo('
+           <div id="alertbox" class="alert alert-danger mt-3" role="alert">
               User with this email already exists
-              </div>');
-            }
+          </div>');
+        }
         
-          ?>
+        ?>
+        </div>
       </div>
+      
+
+      <script>
+        function hideAlertBox() {
+          const alertBox = document.getElementById("alertbox");
+          alertBox.style.display = "none";
+        }
+      </script>
 
     
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
