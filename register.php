@@ -64,10 +64,10 @@
                 <a class="nav-link" aria-current="page" href="index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="register.html">Register</a>
+                <a class="nav-link active" aria-current="page" href="register.php">Register</a>
               </li>     
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="login.html">Login</a>
+                <a class="nav-link" aria-current="page" href="login.php">Login</a>
               </li>  
             </ul>
             <form class="d-flex" role="search">
@@ -117,6 +117,16 @@
         <div class="text-center mt-2">
           Already have an account? <a href="login.html">Login</a>
         </div>
+          <?php
+
+            if(isset($_GET['error'])) {
+            echo('
+              <div class="alert alert-danger mt-3" role="alert">
+              User with this email already exists
+              </div>');
+            }
+        
+          ?>
       </div>
 
     
