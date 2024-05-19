@@ -48,7 +48,7 @@
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src="img/favicon_io/favicon-32x32.png" alt="logo"></a>
+          <a class="navbar-brand" href="#"><img src="img/favicon_io/favicon-32x32.png" alt="icon"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -77,7 +77,7 @@
         <img src="img/Human Profile Logo.jpg" width="250px" height="250px" alt="logo">
         <form action="dblogin.php" method="POST">
             <div class="mb-3 mt-3">
-                <input type="email" name="email" class="text-center fs-5 fw-light" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email address">
+                <input type="email" name="email" class="form-control text-center fs-5 fw-light" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email address">
             </div>
             <div class="mb-3">
                 <input type="password" name="pass" class="form-control text-center fs-5 fw-light" id="password" placeholder="Password">
