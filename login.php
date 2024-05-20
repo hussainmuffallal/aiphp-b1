@@ -89,7 +89,7 @@
             
         </form>
         <div class="text-center mt-2">
-          Don't have an account? <a href="register.html">Register</a>
+          Don't have an account? <a href="register.php">Register</a>
       </div>
       
     </div>

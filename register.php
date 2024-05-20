@@ -13,6 +13,7 @@
     <style>
       body {
             background-image: url(img/Building.jpg);
+
       }
       .hero-text {
             text-align: center;
@@ -46,7 +47,10 @@
             border-radius: 5px;
         }
         
-
+        .btn2:hover {
+            background-color: #333;
+            color: white;
+        }
         
     </style>
 </head>
@@ -115,19 +119,19 @@
             <button type="reset" class="btn2 btn-primary">Clear</button>
         </form>
         <div class="text-center">
-          Already have an account? <a href="login.html">Login</a>
-        </div class="container mb-5">
+          Already have an account? <a href="login.php">Login</a>
+        </div>
         <?php
 
         if(isset($_GET['error'])) {
           echo('
-           <div id="alertbox" class="alert alert-danger mt-3" role="alert">
+            <div id="alertbox" class="alert alert-danger mt-3" role="alert">
               User with this email already exists
           </div>');
         }
         
         ?>
-        </div>
+        
       </div>
       
 
