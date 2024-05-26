@@ -18,6 +18,10 @@
             margin-top: 10vh;
             font-weight: 100;
         }
+
+        .navbar-brand img {
+            border-radius: 5px;
+        }
     </style>
 </head>
   <body>

@@ -42,6 +42,11 @@
             margin-bottom: 25px;
         }
         
+        .alert {
+            display: none;
+            color: red;
+        }
+        
     </style>
 </head>
   <body>
@@ -90,16 +95,30 @@
         </form>
         <div class="text-center mt-2">
           Don't have an account? <a href="register.php">Register</a>
+        </div>
+
+        <?php
+
+        if(isset($_GET['error'])) {
+          echo('
+            <div id="alertbox" class="alert alert-danger mt-3" role="alert">
+              User with this email already exists
+          </div>');
+        }
+        
+        ?>
+
       </div>
       
-    </div>
-   
-
+      <script>
+        function hideAlertBox() {
+          const alertBox = document.getElementById("alertbox");
+          alertBox.style.display = "none";
+        }
+      </script>
     
-   
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   
 
-    </body>
+  </body>
 </html>
