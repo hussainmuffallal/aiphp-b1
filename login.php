@@ -1,4 +1,5 @@
 
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -41,12 +42,7 @@
         .form-text {
             margin-bottom: 25px;
         }
-        
-        .alert {
-            display: none;
-            color: red;
-        }
-        
+            
     </style>
 </head>
   <body>
@@ -82,10 +78,10 @@
         <img src="img/Human Profile Logo.jpg" width="250px" height="250px" alt="logo">
         <form action="dblogin.php" method="POST">
             <div class="mb-3 mt-3">
-                <input type="email" name="email" class="form-control text-center fs-5 fw-light" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email address">
+                <input type="email" name="email" class="form-control text-center fs-5 fw-light" id="exampleInputEmail1" onfocus="hideAlertBox()" aria-describedby="emailHelp" placeholder="Email address">
             </div>
             <div class="mb-3">
-                <input type="password" name="pass" class="form-control text-center fs-5 fw-light" id="password" placeholder="Password">
+                <input type="password" name="pass" class="form-control text-center fs-5 fw-light" id="password" onfocus="hideAlertBox()" placeholder="Password">
             <div class="form-text">
                 <a href="#">Forgot Password?</a>
             </div>
@@ -102,7 +98,7 @@
         if(isset($_GET['error'])) {
           echo('
             <div id="alertbox" class="alert alert-danger mt-3" role="alert">
-              User with this email already exists
+              Invalid email or user does not exist.
           </div>');
         }
         

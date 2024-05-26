@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -87,7 +88,7 @@
         <div class="mb-4 hero-text">Let's Get Registered!</div>
         <form action="dbregister.php" method="POST">
             <div class="mb-3 ">
-                <input type="email" class="form-control text-center fs-5 fw-light" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Email address">
+                <input type="email" class="form-control text-center fs-5 fw-light" id="exampleInputEmail1" onfocus="hideAlertBox()" aria-describedby="emailHelp" name="email" placeholder="Email address">
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <div class="mb-3">
