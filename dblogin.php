@@ -43,16 +43,16 @@ if ($result->num_rows === 1) {
         exit();
     } else {
         // Invalid password
-        header("Location: login.php?invalidpassword");
+        header("Location: login.php?error1");
         exit();
-        echo 'Error: Invalid password';
+        echo "Error: " . $e->getMessage();
     }
 
 } else {
     // Invalid email or user does not exist
-    header("Location: login.php?invalidemailoruser");
+    header("Location: login.php?error2");
     exit();
-    echo 'Error: Invalid email or user does not exist';
+    echo "Error: " . $e->getMessage();
 }
 
 // Close the database connection

@@ -95,10 +95,17 @@
 
         <?php
 
-        if(isset($_GET['error'])) {
+        if(isset($_GET['error1'])) {
           echo('
             <div id="alertbox" class="alert alert-danger mt-3" role="alert">
               Invalid email or user does not exist.
+          </div>');
+        }
+        
+        if(isset($_GET['error2'])) {
+          echo('
+            <div id="alertbox" class="alert alert-danger mt-3" role="alert">
+              Invalid password. Please try again.  
           </div>');
         }
         
