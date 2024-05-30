@@ -92,19 +92,19 @@
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <div class="mb-3">
-                <input type="text" class="form-control text-center fs-5 fw-light" id="firstName" name="firstName" placeholder="First Name">
+                <input type="text" class="form-control text-center fs-5 fw-light" id="firstName" name="firstName" placeholder="First Name" required>
             </div>
             <div class="mb-3">
-                <input type="text" class="form-control text-center fs-5 fw-light" id="lastName" name="lastName" placeholder="Last Name">
+                <input type="text" class="form-control text-center fs-5 fw-light" id="lastName" name="lastName" placeholder="Last Name" required>
             </div>
             <div class="mb-3">
-                <input type="text" class="form-control text-center fs-5 fw-light" id="phone" name="phone" placeholder="Phone">
+                <input type="text" class="form-control text-center fs-5 fw-light" id="phone" name="phone" placeholder="Phone" required>
             </div>
             <div class="mb-3">
-                <input type="text" class="form-control text-center fs-5 fw-light" id="salary" name="salary" placeholder="Salary">
+                <input type="text" class="form-control text-center fs-5 fw-light" id="salary" name="salary" placeholder="Salary" required>
             </div>
             <div class="mb-3">
-                <input type="date" class="form-control text-center fs-5 fw-light" id="dob" name="dateOfBirth" placeholder="Date Of Birth">
+                <input type="date" class="form-control text-center fs-5 fw-light" id="dob" name="dateOfBirth" placeholder="Date Of Birth" required>
             </div>
             <div class="mb-3">
                 <div class="form-check form-check-inline">
