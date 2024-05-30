@@ -40,7 +40,10 @@
         .form-text {
             margin-bottom: 25px;
         }
-            
+        
+        .img-src {
+            border-radius: 15px;
+        }
     </style>
 </head>
   <body>
@@ -73,7 +76,7 @@
       
       <div class="container-md text-center mt-5" style="max-width: 400px;">
         <div class="mb-4 hero-text">Sign In</div>
-        <img src="img/Human Profile Logo.jpg" width="250px" height="250px" alt="logo">
+        <img src="img/Human Profile Logo.jpg" class="img-src" width="250px" height="250px" alt="logo">
         <form action="dblogin.php" method="POST">
             <div class="mb-3 mt-3">
                 <input type="email" name="email" class="form-control text-center fs-5 fw-light" id="exampleInputEmail1" onfocus="hideAlertBox()" aria-describedby="emailHelp" placeholder="Email address" required>

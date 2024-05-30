@@ -34,26 +34,21 @@
             font-weight: 100;
             text-decoration: none;
         }
-        .dash-card-1, .dash-card-2{
+
+        .dash-card {
             text-decoration: none;
             transition:all 0.5s;
-
         }
-        .dash-card-1:hover{
+
+        .dash-card:hover {
             box-shadow: 0 0 10px rgba(0, 172, 255, 0.5);
             transform: scale(1.02);
         }
 
-        .dash-card-2:hover{
-            box-shadow: 0 0 10px rgba(42, 48, 52, 0.5);
-            transform: scale(1.02);
+        .row {
+            width: 175px;
         }
 
-        .card-img-top{
-            height: 240px;
-            width: 240px;
-            align-content: center;
-        }
     </style>
 </head>
   <body>
@@ -88,18 +83,10 @@
         <div class="mb-4 hero-text">OneStop Dashboard</div>
 
         <div class="row">
-          
-          
-            <a class="col-4 dash-card-1 card p-3 rounded-5 mx-3" style="width: 18rem;" href="#">
-            <img src="img/BlueEmp.jpg" class="card-img-top" alt="..."/>
-            <h3 class="dash-card-text">My Profile</h3>
-            </a>
-            <a class="col-4 dash-card-2 card p-3 rounded-5" style="width: 18rem;" href="notes/index.php">
+            <a class="col-4 dash-card card p-3 rounded-5" style="width: 18rem;" href="notes/index.php">
             <img src="img/dashimg/favicon_io (4)/android-chrome-192x192.png" class="card-img-top" alt="..."/>
             <h3 class="dash-card-text">Notepad</h3>
-            </a>
-            
-          
+            </a>   
       </div>
     </div>
 
