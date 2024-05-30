@@ -15,15 +15,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!--Favicons-->
     <link rel="apple-touch-icon" sizes="180x180" href="img/fav/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/fav/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/fav/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="img/fav/site.webmanifest">
     <style>
       .hero-text {
             text-align: center;
             color: #333;
-            font-size: 5rem;
-            margin-top: 10vh;
+            font-size: 4rem;
+            margin-top: 5vh;
             font-weight: 100;
         }
         .dash-card-text {
@@ -34,13 +34,25 @@
             font-weight: 100;
             text-decoration: none;
         }
-        .dash-card{
-          text-decoration: none;
-          transition:all 0.5s;
+        .dash-card-1, .dash-card-2{
+            text-decoration: none;
+            transition:all 0.5s;
+
         }
-        .dash-card:hover{
-          box-shadow: 0 0 10px rgba(64, 79, 219, 0.5);
-          transform: scale(1.02);
+        .dash-card-1:hover{
+            box-shadow: 0 0 10px rgba(0, 172, 255, 0.5);
+            transform: scale(1.02);
+        }
+
+        .dash-card-2:hover{
+            box-shadow: 0 0 10px rgba(42, 48, 52, 0.5);
+            transform: scale(1.02);
+        }
+
+        .card-img-top{
+            height: 240px;
+            width: 240px;
+            align-content: center;
         }
     </style>
 </head>
@@ -48,7 +60,7 @@
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src="../img/fav/favicon-32x32.png" alt="logo"></a>
+          <a class="navbar-brand" href="#"><img src="img/favicon_io/favicon-32x32.png" alt="logo"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -78,9 +90,13 @@
         <div class="row">
           
           
-            <a class="col-4 dash-card card p-3 rounded-5" style="width: 18rem;" href="notes/index.php">
-            <img src="img/dash/notes.png" class="card-img-top" alt="..."/>
-            <h3 class="dash-card-text">Notes App</h3>
+            <a class="col-4 dash-card-1 card p-3 rounded-5 mx-3" style="width: 18rem;" href="#">
+            <img src="img/BlueEmp.jpg" class="card-img-top" alt="..."/>
+            <h3 class="dash-card-text">My Profile</h3>
+            </a>
+            <a class="col-4 dash-card-2 card p-3 rounded-5" style="width: 18rem;" href="notes/index.php">
+            <img src="img/dashimg/favicon_io (4)/android-chrome-192x192.png" class="card-img-top" alt="..."/>
+            <h3 class="dash-card-text">Notepad</h3>
             </a>
             
           

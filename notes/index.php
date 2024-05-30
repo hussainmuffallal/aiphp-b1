@@ -17,8 +17,8 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!--Favicons-->
     <link rel="apple-touch-icon" sizes="180x180" href="../img/fav/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../img/fav/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../img/fav/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="img/fav/site.webmanifest">
     <style>
     .hero-text {
@@ -34,7 +34,7 @@
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="../img/fav/favicon-32x32.png" alt="logo"></a>
+            <a class="navbar-brand" href="#"><img src="../img/favicon_io/favicon-32x32.png" alt="logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -70,7 +70,7 @@
                 <input type="text" class="form-control" id="description" name="description" placeholder="Description" required></input>
             </div>
             <div class="col-1">
-            <button type="submit" class="btn btn-success">Add</button>
+            <button type="submit" class="btn btn-success">Save</button>
             </div>
         </form>
 
