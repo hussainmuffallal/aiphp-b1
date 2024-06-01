@@ -67,7 +67,7 @@
                 <input type="text" class="form-control" id="title" name="title" placeholder="Title" required/>
             </div>
             <div class="col-7">
-                <input type="text" class="form-control" id="description" name="description" placeholder="Description" required></input>
+                <input type="text" class="form-control" id="description" name="description" placeholder="Note" required></input>
             </div>
             <div class="col-1">
             <button type="submit" class="btn btn-success">Save</button>
