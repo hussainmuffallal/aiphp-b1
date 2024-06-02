@@ -61,7 +61,7 @@
     </nav>
 
     <div class="container-md text-center " style="max-width: 850px;">
-        <div class="mb-2 hero-text">Notes App</div>
+        <div class="mb-2 hero-text">Notepad</div>
         <form action="dbnotes.php" method="POST" class="row g-3">
             <div class="col-4">
                 <input type="text" class="form-control" id="title" name="title" placeholder="Title" required/>
