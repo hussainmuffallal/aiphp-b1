@@ -113,7 +113,7 @@
                         echo "<td class='p-3'>" . $row["createdDate"] . "</td>";
                         echo "<td class='p-3'>" . $row["title"] . "</td>";
                         echo "<td class='p-3'>" . $row["description"] . "</td>";
-                        echo "<td class='p-3'> <a class='btn btn-outline-danger' href=" . "dbnotes.php?delid=" . $row["id"] . ">X</a> </td>";
+                        echo "<td class='p-3'> <a class='btn btn-outline-danger' href=" . "dbnotes.php?delid=" . $row["id"] . "><img src='../img/GreyTC16.png'></a> </td>";
                         echo "</tr>";
                     }
                 } else {
