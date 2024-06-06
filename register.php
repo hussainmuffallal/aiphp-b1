@@ -14,8 +14,10 @@
     <style>
       body {
             background-image: url(img/Building.jpg);
-
+            background-repeat: no-repeat;
+            background-size: cover;
       }
+      
       .hero-text {
             text-align: center;
             color: #333;

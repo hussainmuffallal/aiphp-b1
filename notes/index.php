@@ -21,12 +21,22 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="img/fav/site.webmanifest">
     <style>
-    .hero-text {
-        text-align: center;
-        color: #333;
-        font-size: 5rem;
-        font-weight: 100;
-    }
+        body {
+            background-image: url(../img/NoteBG1.jpeg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+      
+        .hero-text {
+            text-align: center;
+            color: #333;
+            font-size: 5rem;
+            font-weight: 100;
+        }
+
+        .container-md table {
+            mix-blend-mode: darken;
+        }
     </style>
 </head>
 
