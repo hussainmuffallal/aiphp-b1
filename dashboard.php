@@ -35,45 +35,42 @@
             text-decoration: none;
         }
 
-        .dash-card {
+        .dash-card-1, .dash-card-2 {
             text-decoration: none;
             transition:all 0.5s;
         }
 
-        .dash-card:hover {
+        .dash-card-1:hover {
             box-shadow: 0 0 10px rgba(0, 172, 255, 0.5);
             transform: scale(1.02);
         }
 
-        .row {
-            width: 175px;
+        .dash-card-2:hover {
+            box-shadow: 0 0 10px rgba(2, 2, 136, 0.5);
+            transform: scale(1.02);
         }
 
+        .row {
+            align-self: center;
+        }
     </style>
 </head>
   <body>
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src="img/favicon_io/favicon-32x32.png" alt="logo"></a>
+          <a class="navbar-brand" href="index.php"><img src="img/favicon_io/favicon-32x32.png" alt="logo"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                <a class="nav-link" aria-current="page" href="index.php">Home</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="register.php">Register</a>
-              </li>     
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="login.php">Login</a>
-              </li>    
             </ul>
             <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+              <a href="logout.php" class="btn btn-outline-danger" >Logout</a>
             </form>
           </div>
         </div>
@@ -83,9 +80,13 @@
         <div class="mb-4 hero-text">OneStop Dashboard</div>
 
         <div class="row">
-            <a class="col-4 dash-card card p-3 rounded-5" style="width: 18rem;" href="notes/index.php">
+            <a class="col-4 dash-card-1 card p-3 rounded-5" style="width: 175px;" href="notes/index.php">
             <img src="img/dashimg/favicon_io (4)/android-chrome-192x192.png" class="card-img-top" alt="..."/>
             <h3 class="dash-card-text">Notepad</h3>
+            </a>
+            <a class="col-4 dash-card-2 card p-3 rounded-5" style="width: 175px; margin-left: 20px" href="tasks/index.php">
+            <img src="img/Task.png" class="card-img-top" alt="..."/>
+            <h3 class="dash-card-text">Tasks List</h3>
             </a>   
       </div>
     </div>
