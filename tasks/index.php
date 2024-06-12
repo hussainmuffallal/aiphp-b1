@@ -23,9 +23,8 @@
     <link rel="manifest" href="img/fav/site.webmanifest">
     <style>
         body {
-            background-image: url(../img/Taskimg/TaskBG.jpg);
-            background-repeat: no-repeat;
-            background-size: cover;
+            background-color: lightcyan;
+            
         }
       
         .hero-text {
@@ -58,7 +57,7 @@
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
-                    <a href="../logout.php" class="btn btn-outline-danger" >Logout</a>
+                    <a href="../logout.php" class="btn btn-outline-danger" >Logout <img src="../img/Logout24.png"></a>
                 </form>
             </div>
         </div>
@@ -160,7 +159,7 @@
                         echo "<td class='p-3'>" . $row["CreatedDate"] . "</td>";
                         echo "<td class='p-3'>" . $row["ListName"] . "</td>";
                         echo "<td class='p-3'>" . $row["Caption"] . "</td>";
-                        echo "<td class='p-3'> <a class='btn btn-outline-danger' href=" . "dbtasks.php?delid=" . $row["ListName"] . "><img src='../img/GreyTC16.png'></a> </td>";
+                        echo "<td class='p-3'> <a class='btn btn-outline-danger' href=" . "dbtasks.php?delid=" . $row["ListName"] . ">X</a> </td>";
                         echo "</tr>";
                     }
                 } else {

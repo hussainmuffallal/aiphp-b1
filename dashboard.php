@@ -50,9 +50,6 @@
             transform: scale(1.02);
         }
 
-        .row {
-            align-self: center;
-        }
     </style>
 </head>
   <body>
@@ -68,9 +65,12 @@
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="index.php">Home</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="dashboard.php">Dashboard</a>
+              </li>
             </ul>
             <form class="d-flex" role="search">
-              <a href="logout.php" class="btn btn-outline-danger" >Logout</a>
+              <a href="logout.php" class="btn btn-outline-danger" >Logout <img src="img/Logout24.png"></a>
             </form>
           </div>
         </div>
@@ -86,7 +86,7 @@
             </a>
             <a class="col-4 dash-card-2 card p-3 rounded-5" style="width: 175px; margin-left: 20px" href="tasks/index.php">
             <img src="img/Task.png" class="card-img-top" alt="..."/>
-            <h3 class="dash-card-text">Tasks List</h3>
+            <h3 class="dash-card-text">Tasks</h3>
             </a>   
       </div>
     </div>
