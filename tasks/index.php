@@ -6,7 +6,6 @@
     }
 ?>
 
-
 <!doctype html>
 <html lang="en">
 
@@ -24,7 +23,6 @@
     <style>
         body {
             background-color: lightcyan;
-            
         }
       
         .hero-text {
@@ -55,6 +53,9 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="../index.php">Home</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="../dashboard.php">Dashboard</a>
+                    </li>
                 </ul>
                 <form class="d-flex" role="search">
                     <a href="../logout.php" class="btn btn-outline-danger" >Logout <img src="../img/Logout24.png"></a>
@@ -67,15 +68,14 @@
         <div class="mb-2 hero-text">Tasks</div>
         <form action="dbtasks.php" method="POST" class="row g-3">
             <div class="col-4">
-                <input type="text" class="form-control" id="ListName" name="ListName" placeholder="List Name" required/>
+                <input type="text" class="form-control" id="listname" name="listname" placeholder="Task Name" required/>
             </div>
             <div class="col-6">
-                <input type="text" class="form-control" id="Caption" name="Caption" placeholder="What needs to be done" required></input>
+                <input type="text" class="form-control" id="caption" name="caption" placeholder="What needs to be done" required></input>
             </div>
             <div class="col-1">
-                <button type="submit" class="btn btn-success">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
-                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
+                <button type="submit" class="btn btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
                     </svg>
                 </button>
             </div>
@@ -139,12 +139,12 @@
                     $search=$_GET['search'];
                     if($search==''){
                         //All the records
-                        $sql = "SELECT ListName,CreatedDate,Caption FROM task WHERE email = '$email' ORDER BY createdDate DESC";
+                        $sql = "SELECT id,createdDate,listname,caption FROM task WHERE email = '$email' ORDER BY createdDate DESC";
                     }
-                    $sql = "SELECT ListName,CreatedDate,Caption FROM task WHERE email = '$email' AND ListName LIKE '%$search%' ORDER BY createdDate DESC";
+                    $sql = "SELECT id,createdDate,listname,caption FROM task WHERE email = '$email' AND listname LIKE '%$search%' ORDER BY createdDate DESC";
                 }else{
                     // SQL query to select the desired columns from the "Employee" table
-                    $sql = "SELECT ListName,CreatedDate,Caption FROM task WHERE email = '$email' ORDER BY createdDate DESC";
+                    $sql = "SELECT id,createdDate,listname,caption FROM task WHERE email = '$email' ORDER BY createdDate DESC";
                 }
 
                 // Execute the query
@@ -156,10 +156,10 @@
                     while ($row = $result->fetch_assoc()) {
                         // Display the data in table rows
                         echo "<tr>";
-                        echo "<td class='p-3'>" . $row["CreatedDate"] . "</td>";
-                        echo "<td class='p-3'>" . $row["ListName"] . "</td>";
-                        echo "<td class='p-3'>" . $row["Caption"] . "</td>";
-                        echo "<td class='p-3'> <a class='btn btn-outline-danger' href=" . "dbtasks.php?delid=" . $row["ListName"] . ">X</a> </td>";
+                        echo "<td class='p-3'>" . $row["createdDate"] . "</td>";
+                        echo "<td class='p-3'>" . $row["listname"] . "</td>";
+                        echo "<td class='p-3'>" . $row["caption"] . "</td>";
+                        echo "<td class='p-3'> <a class='btn btn-outline-danger' href=" . "dbtasks.php?delid=" . $row["id"] . ">X</a> </td>";
                         echo "</tr>";
                     }
                 } else {

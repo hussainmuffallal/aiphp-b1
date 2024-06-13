@@ -22,8 +22,8 @@
     // Check if the form has been submitted
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Get the form data
-        $ListName = $_POST['ListName'];
-        $Caption = $_POST['Caption'];
+        $listname = $_POST['listname'];
+        $caption = $_POST['caption'];
         $email=$_SESSION['userloggedin'];
 
         
@@ -36,8 +36,8 @@
         }
 
         // Prepare and execute the SQL statement
-        $stmt = $conn->prepare("INSERT INTO tasks (ListName, Caption, Email) VALUES (?, ?,?)");
-        $stmt->bind_param("sss", $ListName, $Caption, $email);
+        $stmt = $conn->prepare("INSERT INTO task (listname, caption,email) VALUES (?, ?,?)");
+        $stmt->bind_param("sss", $listname, $caption,$email);
 
         if ($stmt->execute()) {
             header('Location:index.php?inserted');
@@ -52,19 +52,16 @@
     }
 
 
-    // Check if a delete request is made
+    //Check if a delete request is made
     if(isset($_GET['delid'])){
         $delid = $_GET['delid'];
         $conn = new mysqli($servername, $username, $password, $dbname);
-        $stmt = $conn->prepare("DELETE FROM task WHERE ListName = ?");
-        $stmt->bind_param("s", $delid);
-        if($stmt->execute()){
-            header('Location:tasks/index.php?deleted');
+        $sql = "DELETE FROM task WHERE id = $delid";
+        if($conn->query($sql) === TRUE){
+            header('Location:index.php?deleted');
             exit();
-        } else {
-            echo "Error: " . $stmt->error;
-        }
-        $stmt->close();
+        };
         $conn->close();
     }
+    
 ?>

@@ -55,9 +55,12 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="../index.php">Home</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="../dashboard.php">Dashboard</a>
+                    </li>
                 </ul>
                 <form class="d-flex" role="search">
-                    <a href="logout.php" class="btn btn-outline-danger" >Logout</a>
+                    <a href="../logout.php" class="btn btn-outline-danger" >Logout <img src="../img/Logout24.png"></a>
                 </form>
             </div>
         </div>
