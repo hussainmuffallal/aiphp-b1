@@ -65,13 +65,13 @@
     </nav>
 
     <div class="container-md text-center " style="max-width: 850px;">
-        <div class="mb-2 hero-text">Tasks</div>
+        <div class="mb-2 hero-text">Task List</div>
         <form action="dbtasks.php" method="POST" class="row g-3">
             <div class="col-4">
-                <input type="text" class="form-control" id="listname" name="listname" placeholder="Task Name" required/>
+                <input type="text" class="form-control" id="listname" name="listname" placeholder="List Name" required/>
             </div>
             <div class="col-6">
-                <input type="text" class="form-control" id="caption" name="caption" placeholder="What needs to be done" required></input>
+                <input type="text" class="form-control" id="caption" name="caption" placeholder="Caption" required></input>
             </div>
             <div class="col-1">
                 <button type="submit" class="btn btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
@@ -174,10 +174,6 @@
 
     </div>
    
-
-
-
-
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
