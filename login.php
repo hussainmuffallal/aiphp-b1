@@ -60,7 +60,7 @@
                 <input type="email" name="email" class="form-control text-center fs-5 fw-light" id="exampleInputEmail1" onfocus="hideAlertBox()" aria-describedby="emailHelp" placeholder="Email address" required>
             </div>
             <div class="mb-3">
-                <input type="password" name="pass" class="form-control text-center fs-5 fw-light" id="password" onfocus="hideAlertBox()" placeholder="Password">
+                <input type="password" name="pass" class="form-control text-center fs-5 fw-light" id="password" onfocus="hideAlertBox()" placeholder="Password" required>
             <div class="form-text">
                 <a href="#">Forgot Password?</a>
             </div>

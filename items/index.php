@@ -4,6 +4,13 @@
         header('Location: ../login.php');
         exit();
     }
+    if(isset($_GET['listname']) && isset($_GET['cdate'])){
+        $lname=$_GET['listname'];
+        $cdate=$_GET['cdate'];
+    }else{
+        header('Location: ../tasks/index.php');
+        exit;
+    }
 ?>
 
 <!doctype html>
@@ -21,29 +28,38 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="img/fav/site.webmanifest">
     <style>
-        body {
-            background-color: lightcyan;
-        }
-      
-        .hero-text {
-            text-align: center;
-            color: #333;
-            font-size: 5rem;
-            font-weight: 100;
-        }
+    .hero-text {
+        text-align: center;
+        color: #333;
+        font-size: 5rem;
+        font-weight: 100;
+    }
 
-        .navbar-brand img {
-            border-radius: 5px;
-        }
+    .navbar-brand img {
+        border-radius: 5px;
+    }
 
-        .container-md table{
-            mix-blend-mode: darken;
-        }
+    .form-control {
+        border-radius: 20px;
+            
+    }
 
-        table tr:hover td {
-            background-color: #f5f5f5;
-            cursor: pointer;
-        }
+    .container-md {
+        margin-top: 50px;
+        border: #333 solid 1px;
+        border-radius: 20px;
+        margin-bottom: 40px;
+    }
+
+    .list-group {
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+    .list-group-item {
+        border: none;
+    }
+
 
     </style>
 </head>
@@ -52,7 +68,7 @@
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="../index.php"><img src="../img/favicon_io/favicon-32x32.png" alt="logo"></a>
+            <a class="navbar-brand" href="#"><img src="../img/favicon_io/favicon-32x32.png" alt="logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -66,69 +82,74 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="../dashboard.php">Dashboard</a>
                     </li>
+                    
                 </ul>
                 <form class="d-flex" role="search">
-                    <a href="../logout.php" class="btn btn-outline-danger" >Logout <img src="../img/Logout24.png"></a>
+                    
+                    <a href="../logout.php" class="btn btn-outline-danger" >Logout</a>
                 </form>
             </div>
         </div>
     </nav>
 
     <div class="container-md text-center " style="max-width: 850px;">
-        <div class="mb-2 hero-text">Task List</div>
-        <form action="dbtasks.php" method="POST" class="row g-3">
-            <div class="col-4">
-                <input type="text" class="form-control" id="title" name="listname" placeholder="List Name" required/>
+            <div class="position-relative">
+                <div class="position-absolute top-0 start-0 mt-2">
+                    <a href="../tasks/index.php?listname=<?php echo ($lname); ?>&cdate=<?php echo ($cdate); ?>" class="btn btn-outline-secondary">Back</a>
+                </div>
             </div>
-            <div class="col-6">
-                <input type="text" class="form-control" id="description" name="caption" placeholder="Caption" required></input>
+        <div class="hero-text"><?php echo ($lname); ?><br/></div>
+        <span class="text-secondary fs-3 mt-0 pt-0"> <?php echo ($cdate); ?></span>
+        <form action="dbitems.php?listname=<?php echo ($lname); ?>&cdate=<?php echo ($cdate); ?>" method="POST" class="row g-3 mt-1">
+            
+            <div class="col-10 ">
+                <input type="text" class="form-control" id="title" name="description" placeholder="Description" required/>
+                
             </div>
+    
             <div class="col-1">
                 <button type="submit" class="btn btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
                     </svg>
                 </button>
+            
             </div>
+
             <div class="col-1">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#searchModal">
+
+                <button type="button" class="btn btn-primary" id="searchModalButton" data-bs-toggle="modal" data-bs-target="#searchModal">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
                     </svg>
 
                 </button>
             </div>
+
         </form>
-
-        <!-- Modal -->
-        <div class="modal fade " id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-            
-            <div class="modal-body">
-                <form action="" method="GET">
+<!-- Modal -->
+<div class="modal fade " id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-body">
+        <form action="" method="GET">
+          
+        <div class="input-group mb-3">
+        <input type="text" name="search" class="form-control" placeholder="Spotlight Search" aria-label="Spotlight Search" aria-describedby="basic-addon2">
+            <button class="input-group-text" id="basic-addon2" type="submit">Search</button>
+        </div>
                 
-                <div class="input-group mb-3">
-                <input type="text" name="search" class="form-control" placeholder="Spotlight Search" aria-label="Spotlight Search" aria-describedby="basic-addon2">
-                    <button class="input-group-text" id="basic-addon2" type="submit">Search</button>
-                </div>
-                        
-                </form>
-            </div>
-            </div>
-        </div>
-        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
 
-        <!-- Modal Ends -->
-
-        <table class="table mt-5">
-            <thead>
-                <tr>
-                    <th>Date Created</th>
-                    <th>List Name</th>
-                    <th>Caption</th>
-                </tr>
-            </thead>
-            <tbody>
+<!-- Modal Ends -->
+    <div style="text-align: left">
+        <ul class="list-group">
+            
+            
                 <?php
                 // Connect to the MySQL database
                 $servername = "localhost";
@@ -146,16 +167,19 @@
 
                 //Check if a search request is made
                 if(isset($_GET['search'])){
-                    $search=$_GET['search'];
-                    if($search==''){
-                        //All the records
-                        $sql = "SELECT id,CreatedDate,ListName,Caption FROM tasklist WHERE email = '$email' ORDER BY CreatedDate DESC";
+                    $search = $_GET['search'];
+                    if($search == ''){
+                        // All records query
+                        $sql = "SELECT ItemId, Description, Status FROM item WHERE ListName = '$lname' ORDER BY ItemId DESC";
+                    } else {
+                        // Search query
+                        $sql = "SELECT ItemId, Description, Status FROM item WHERE ListName = '$lname' AND (Description LIKE '%$search%' OR Status LIKE '%$search%') ORDER BY ItemId DESC";
                     }
-                    $sql = "SELECT id,CreatedDate,ListName,Caption FROM tasklist WHERE email = '$email' AND ListName LIKE '%$search%' ORDER BY CreatedDate DESC";
-                }else{
-                    // SQL query to select the desired columns from the "Employee" table
-                    $sql = "SELECT id,CreatedDate,ListName,Caption FROM tasklist WHERE email = '$email' ORDER BY CreatedDate DESC";
+                } else {
+                    // Default query (show all records)
+                    $sql = "SELECT ItemId, Description, Status FROM item WHERE ListName = '$lname' ORDER BY ItemId DESC";
                 }
+
 
                 // Execute the query
                 $result = $conn->query($sql);
@@ -164,15 +188,13 @@
                 if ($result) {
                     // Fetch the rows
                     while ($row = $result->fetch_assoc()) {
-                        $lname=$row["ListName"];
-                        $cdate=$row["CreatedDate"];
                         // Display the data in table rows
-                        echo "<tr onclick='handleRowClick(event)'>";
-                        echo "<td class='p-3'>" . $row["CreatedDate"] . "</td>";
-                        echo "<td class='p-3'>" . $row["ListName"] . "</td>";
-                        echo "<td class='p-3'>" . $row["Caption"] . "</td>";
-                        echo "<td class='p-3'> <a class='btn btn-outline-danger' href=" . "dbtasks.php?delid=" . $row["id"] . ">X</a> </td>";
-                        echo "</tr>";
+                        echo('<li class="list-group-item fs-4 fw-light">
+                        <input class="form-check-input me-1" type="checkbox" value="" id="'.$row['ItemId'].'">
+                        <label class="form-check-label" for="'.$row['ItemId'].'">'.$row["Description"].'</label>'.' ');
+                    
+                    
+                        echo('<a class="btn btn-outline-danger" href="dbitems.php?delid=' . $row['ItemId'] . '&listname=' . urlencode($lname) . '&cdate=' . urlencode($cdate) . '">X</a>'); 
                     }
                 } else {
                     echo "Error: " . $sql . "<br>" . $conn->error;
@@ -181,32 +203,28 @@
                 // Close the connection
                 $conn->close();
                 ?>
-            </tbody>
-        </table>
-
+            </ul>
+        </div>
     </div>
 
     <script>
-        function handleRowClick(event) {
-            // Get the row element that was clicked
-            const row = event.target.closest('tr');
+        document.getElementById('searchModalButton').addEventListener('click', function(event) {
+            event.preventDefault();  // Prevent default form submission
+            searchModal.show();
+        });
 
-            // Get the data from the row
-            const data = [];
-            row.querySelectorAll('td').forEach((cell) => {
-                data.push(cell.textContent.trim());
-            });
+        var searchModal = new bootstrap.Modal(document.getElementById('searchModal'), {
+            keyboard: false
+        });
 
-            // Build the URL with the data
-            const url = '../items/index.php?listname=' + encodeURIComponent(data[1]) + '&cdate=' + encodeURIComponent(data[0]);
-
-            // Navigate to the URL
-            window.location.href = url;
-        }
+        document.getElementById('searchModalButton').addEventListener('click', function() {
+            searchModal.show();
+        });
     </script>
+
    
 
-
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>

@@ -26,6 +26,11 @@
             margin-top: 5vh;
             font-weight: 100;
         }
+
+        .navbar-brand img {
+            border-radius: 5px;
+        }
+        
         .dash-card-text {
             text-align: center;
             color: #333;

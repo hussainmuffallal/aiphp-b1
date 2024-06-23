@@ -34,6 +34,10 @@
             font-weight: 100;
         }
 
+        .navbar-brand img {
+            border-radius: 5px;
+        }
+
         .container-md table {
             mix-blend-mode: darken;
         }

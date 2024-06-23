@@ -5,13 +5,16 @@
         header('Location: ../login.php');
         exit();
     }
+    
 ?>
 
 <?php
+
     // Enable error reporting
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
+
 
     // Connect to the database
     $servername = "localhost";
@@ -22,11 +25,11 @@
     // Check if the form has been submitted
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Get the form data
-        $listname = $_POST['listname'];
-        $caption = $_POST['caption'];
-        $email=$_SESSION['userloggedin'];
-
+        $description = $_POST['description'];
+        $listname = $_GET['listname'];
+        $cdate=$_GET['cdate'];
         
+
 
         $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -36,11 +39,11 @@
         }
 
         // Prepare and execute the SQL statement
-        $stmt = $conn->prepare("INSERT INTO tasklist (ListName, Caption,email) VALUES (?, ?,?)");
-        $stmt->bind_param("sss", $listname, $caption,$email);
+        $stmt = $conn->prepare("INSERT INTO item (Description,ListName) VALUES (?, ?)");
+        $stmt->bind_param("ss", $description, $listname,);
 
         if ($stmt->execute()) {
-            header('Location:index.php?inserted');
+            header("Location:index.php?listname=" . $listname . "&cdate=" . $cdate . "");
             exit();
         } else {
             echo "Error: " . $stmt->error;
@@ -52,16 +55,17 @@
     }
 
 
-    //Check if a delete request is made
+    // Check if a delete request is made
     if(isset($_GET['delid'])){
         $delid = $_GET['delid'];
+        $listname = $_GET['listname'];
+        $cdate = $_GET['cdate'];
         $conn = new mysqli($servername, $username, $password, $dbname);
-        $sql = "DELETE FROM tasklist WHERE id = $delid";
+        $sql = "DELETE FROM item WHERE ItemId = '".$delid."'";
         if($conn->query($sql) === TRUE){
-            header('Location:index.php?deleted');
+            header("Location:index.php?listname=" . $listname . "&cdate=" . $cdate . "&deleted");
             exit();
-        };
-        $conn->close();
+        }
     }
     
 ?>
