@@ -37,7 +37,7 @@
         }
 
         .container-md{
-            background-color: rgb(187, 236, 255);
+            backdrop-filter: blur(25px);
             border-radius: 20px;
             margin-bottom: 40px;
         }
@@ -69,7 +69,7 @@
         <form action="dbregister.php" method="POST">
             <div class="mb-3 ">
                 <input type="email" class="form-control text-center fs-5 fw-light" id="exampleInputEmail1" onfocus="hideAlertBox()" aria-describedby="emailHelp" name="email" placeholder="Email address" required>
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <div id="emailHelp" class="form-text" style="color:white">We'll never share your email with anyone else.</div>
             </div>
             <div class="mb-3">
                 <input type="text" class="form-control text-center fs-5 fw-light" id="firstName" name="firstName" placeholder="First Name" required>
@@ -89,17 +89,17 @@
             <div class="mb-3">
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="gender" id="male" value="m" checked>
-                    <label class="form-check-label fs-5 fw-light" for="male">Male</label>
+                    <label class="form-check-label fs-5 fw-light" for="male" style="color:white">Male</label>
                 </div>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="gender" id="female" value="f">
-                    <label class="form-check-label fs-5 fw-light" for="female">Female</label>
+                    <label class="form-check-label fs-5 fw-light" for="female" style="color:white">Female</label>
                 </div>
             </div>
             <button type="submit" class="btn btn-primary fs-5 fw-light">Register</button><br>
             <button type="reset" class="btn2 btn-primary">Clear</button>
         </form>
-        <div class="text-center">
+        <div class="text-center" style="color:white">
           Already have an account? <a href="login.php">Login</a>
         </div>
         <?php

@@ -28,6 +28,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="img/fav/site.webmanifest">
     <style>
+    body {
+        background-color: linen;
+    }
     .hero-text {
         text-align: center;
         color: #333;
@@ -189,9 +192,12 @@
                     // Fetch the rows
                     while ($row = $result->fetch_assoc()) {
                         // Display the data in table rows
-                        echo('<li class="list-group-item fs-4 fw-light">
-                        <input class="form-check-input me-1" type="checkbox" value="" id="'.$row['ItemId'].'">
-                        <label class="form-check-label" for="'.$row['ItemId'].'">'.$row["Description"].'</label>'.' ');
+                        echo ('<li class="list-group-item fs-4 fw-light">
+        
+        <input class="form-check-input me-1" type="checkbox" value="" id="' . $row['ItemId'] . '" onchange="updateStatus(' . $row['ItemId'] . ')"' . ($row['Status'] == '1' ? ' checked' : '') . '/>
+        <label class="form-check-label ' . ($row['Status'] == '1' ? 'text-decoration-line-through' : '') . '" for="' . $row['ItemId'] . '">' . $row["Description"] . '</label>
+    
+    ');
                     
                     
                         echo('<a class="btn btn-outline-danger" href="dbitems.php?delid=' . $row['ItemId'] . '&listname=' . urlencode($lname) . '&cdate=' . urlencode($cdate) . '">X</a>'); 
@@ -207,19 +213,37 @@
         </div>
     </div>
 
+    <!-- Item Status Update Function -->
     <script>
-        document.getElementById('searchModalButton').addEventListener('click', function(event) {
-            event.preventDefault();  // Prevent default form submission
-            searchModal.show();
-        });
+        function updateStatus(itemId) {
 
-        var searchModal = new bootstrap.Modal(document.getElementById('searchModal'), {
-            keyboard: false
-        });
+            // Get the checkbox element
+        var checkbox = document.getElementById(itemId);
 
-        document.getElementById('searchModalButton').addEventListener('click', function() {
-            searchModal.show();
-        });
+        // Get the label element
+        var label = document.querySelector(`label[for="${itemId}"]`);
+
+        // Check if the checkbox is checked
+        if (checkbox.checked) {
+            // Add the strike-through class to the label
+            label.classList.add('text-decoration-line-through');
+        } else {
+            // Remove the strike-through class from the label
+            label.classList.remove('text-decoration-line-through');
+        }
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'dbupdatestatus.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // Handle the response from the server
+                    var response = xhr.responseText;
+                    console.log(response);
+                }
+            };
+            xhr.send('itemId=' + itemId);
+        }
     </script>
 
    

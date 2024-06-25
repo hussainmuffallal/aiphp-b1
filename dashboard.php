@@ -19,6 +19,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="img/fav/site.webmanifest">
     <style>
+
+      body {
+            background-color: linen;  
+      }
+
       .hero-text {
             text-align: center;
             color: #333;
